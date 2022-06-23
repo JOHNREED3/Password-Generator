@@ -1,8 +1,8 @@
 // Assignment code here
 
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+var approvedChars;
 
 var generatePassword = function() {
   var length = prompt("How many characters would you like your password to contain?");
@@ -10,36 +10,48 @@ var generatePassword = function() {
   if (length < 8 || length > 128) {
     alert("Password must be between 8 and 128 characters!");
     return generatePassword();
-  };
-  var specialChars = ("!@#$%^&*()");
-  var numericChars = ("0123456789");
-  var lowerChars = ("abcdefghijklmnopqrstuvwxyz");
-  var upperChars = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-  var approvedChars;
+    };
+};
+
+//debugger;
 
   var generateChars = function() {
-    var tempChars; 
-  };
+      // confirm("Click OK to confirm including special characters.") 
+    if (confirm("Click OK to confirm including special characters.") == true) {
+      console.log("special characters requested");
+      var tempSpecial=("!@#$%^&*()");
+    } else { tempSpecial=("")};
 
-  if (confirm("Click OK to confirm including special characters.") == true) {
-    // ******** TRY USING 
-    console.log("special characters requested");
-    // confirm("Click OK to confirm including numeric characters.") 
-    // confirm("Click OK to confirm including lowercase characters.") 
-    // confirm("Click OK to confirm including uppercase characters.") 
-    // alert("You must select at least one character type!" )
-    // var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      // confirm("Click OK to confirm including numeric characters.") 
+    if (confirm("Click OK to confirm including numeric characters.") == true) {
+      console.log("numeric characters requested");
+      var tempNumeric=("0123456789");
+    } else { tempNumeric=("")};
+    
+      // confirm("Click OK to confirm including lowercase characters.") 
+    if (confirm("Click OK to confirm including lowercase characters.") == true) {
+      console.log("lowercase characters requested");
+      var tempLower=("abcdefghijklmnopqrstuvwxyz");
+    } else { tempLower=("")};
+    
+      // confirm("Click OK to confirm including uppercase characters.") 
+    if (confirm("Click OK to confirm including uppercase characters.") == true) {
+      console.log("uppercase characters requested");
+      var tempUpper=("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    } else { tempUpper=("")};
+
+    var tempChars = (tempSpecial + tempNumeric + tempLower + tempUpper);
+    console.log(tempChars);
+    approvedChars = tempChars;
+  
     // for (var i = 0; i <= passwordLength; i++) {
     //   var randomNumber = Math.floor(Math.random() * chars.length);
     //   password += chars.substring(randomNumber, randomNumber +1);
     //  }
 
 
-  } else {generatePassword();
-  };
-
   return "password";
-}
+};
 
 // Write password to the #password input
 function writePassword() {
