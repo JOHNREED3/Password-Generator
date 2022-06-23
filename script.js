@@ -7,6 +7,7 @@ var passwordText;
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+//generate password
 var generatePassword = function() {
   passwordLength = prompt("How many characters would you like your password to contain?");
   console.log(passwordLength);
@@ -16,7 +17,7 @@ var generatePassword = function() {
     };
   generateChars();
   randomPassword();  
- 
+
   function randomPassword() {
     for (var i = 0; i <=passwordLength; i++) {
       var randomChar = Math.floor(Math.random() * approvedChars.length);
@@ -26,26 +27,23 @@ var generatePassword = function() {
   return password;
 };
 
+// select characters to be used in the password
 var generateChars = function() {
-      // confirm("Click OK to confirm including special characters.") 
     if (confirm("Click OK to confirm including special characters.") == true) {
       console.log("special characters requested");
       var tempSpecial=("!@#$%^&*()");
     } else { tempSpecial=("")};
 
-      // confirm("Click OK to confirm including numeric characters.") 
     if (confirm("Click OK to confirm including numeric characters.") == true) {
       console.log("numeric characters requested");
       var tempNumeric=("0123456789");
     } else { tempNumeric=("")};
     
-      // confirm("Click OK to confirm including lowercase characters.") 
     if (confirm("Click OK to confirm including lowercase characters.") == true) {
       console.log("lowercase characters requested");
       var tempLower=("abcdefghijklmnopqrstuvwxyz");
     } else { tempLower=("")};
     
-      // confirm("Click OK to confirm including uppercase characters.") 
     if (confirm("Click OK to confirm including uppercase characters.") == true) {
       console.log("uppercase characters requested");
       var tempUpper=("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
